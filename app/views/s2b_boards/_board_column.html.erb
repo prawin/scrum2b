@@ -1,12 +1,20 @@
-<p class="status">
-  <%= column_name %>
-</p>
-<% if column_id == :new_column && editable_for_project? %>
-  <li style="float: right;cursor: pointer;height:10px" title="<%= l(:label_board_issue_new_issue) %>" class="icon_new_issue icon icon-add"></li>
-  <li id="new_issue_form" style="list-style: none !important;">
-    <%= render(:partial => "issue", :locals => { :issue => Issue.new, :column => column_id, :show_for => :create_new }) %>
+<ul class="board_head">
+  <li>
+    <p class="status">
+    <%= column_name %>
+    </p>
   </li>
+  <% if column_id == :new_column && editable_for_project? %>
+    <li style="float: right;cursor: pointer;height:10px" title="<%= l(:label_board_issue_new_issue) %>" class="icon_new_issue icon icon-add fa-2x"></li>
+  <% end %>
+  </ul>
+
+<% if column_id == :new_column && editable_for_project? %>
+  <div id="new_issue_form" style="list-style: none !important;">
+    <%= render(:partial => "issue", :locals => { :issue => Issue.new, :column => column_id, :show_for => :create_new }) %>
+  </div>
 <% end %>
+
 <% if editable_for_project? %>
   <div class="connectedSortable ui-sortable" status="<%= status %>">
 <% else %>
@@ -16,3 +24,16 @@
       <%= render(:partial => "issue", :locals => { :issue => issue, :column => column_id, :show_for => editable_for_project? ? :show_and_edit : :show }) %>
   <% end if issues %>
 </div>
+
+<style>
+  /* #new_column ul.board_head{
+    background-color: #fc8c12;
+  } */
+  ul.board_head{
+    padding: 5px;
+    overflow:hidden;
+  }
+  /* ul.board_head li p.status{
+    color: #fff;
+  } */
+</style>

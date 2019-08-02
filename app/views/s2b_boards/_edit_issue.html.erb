@@ -18,8 +18,8 @@
           <% end %>
         </select>
       </div>
+      <% if @project.issue_categories.any? %>
       <div class="col-50">
-        <% if @project.issue_categories.any? %>
           <select class="value_content col-100" name="issue[category_id]" >
             <option>Category...</option>
             <% if issue.id %>
@@ -32,8 +32,8 @@
               <% end %>
             <% end %>
          </select>
-       <% end %>
       </div>
+      <% end %>
     </div>
       
     <div id="p_assignee_<%= issue.id %>">
