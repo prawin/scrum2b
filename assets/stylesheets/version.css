@@ -391,6 +391,9 @@ span.error {
 .green{
   background-color: #40b73e;
 }
+.purple{
+  background-color: #715dbf;
+}
 
 .issue_labels a{
   color: #fff;

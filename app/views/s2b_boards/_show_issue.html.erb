@@ -37,24 +37,24 @@
     <div class="assignee clearfix">
       <% if issue.assigned_to %>
         <div class="no_edit issue_labels cadetblue2" id="assignee_<%= issue.id %>">
-          #<%= link_to issue.assigned_to,:controller => 'users', :action => 'show', :id =>issue.assigned_to.id %>
+          <%= issue.assigned_to %>
         </div>
       <% end %>
 
       <% if issue.status %>
-        <div class="no_edit issue_labels cadetblue2" id="assignee_<%= issue.id %>">
-          #<%= issue.status %>
+        <div class="no_edit issue_labels purple" id="assignee_<%= issue.id %>">
+          <%= issue.status %>
         </div>
       <% end %>
 
       <% if issue.priority %>
         <div class="no_edit issue_labels orange" id="priority_<%= issue.id %>" >
-          #<%= issue.priority.name %>
+          <%= issue.priority.name %>
         </div>
       <% end %>
       <% if issue.category %>
         <div class="no_edit issue_labels green" id="category_<%= issue.id %>">
-          #<%= issue.category.name %>
+          <%= issue.category.name %>
         </div>
       <% end %>
       <span style="float: right;line-height: 25px">
