@@ -57,6 +57,12 @@
           <%= issue.category.name %>
         </div>
       <% end %>
+
+      <% if issue.due_date %>
+        <div class="no_edit issue_labels cadetblue" id="due_date_<%= issue.id %>">
+          <%= issue.due_date.to_s %>
+        </div>
+      <% end %>
       <span style="float: right;line-height: 25px">
         <i class="icon icon-commnet " onClick="show_detail(<%= issue.id %>)" ><%= issue.journals.where("notes NOT IN (?)",'').count %></i>
         <i class="icon icon-attachment" onClick="show_detail(<%= issue.id %>)" ><%= issue.attachments.count %></i>
